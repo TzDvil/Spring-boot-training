@@ -6,6 +6,7 @@ import com.company.springboottraining.services.CustomerService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
@@ -97,5 +98,10 @@ public class CustomerRestController {
     @ExceptionHandler(NullPointerException.class)
     public ResponseEntity<?> nullPointerHandler(NullPointerException ex){
         return new ResponseEntity<>("MISSING PARAMS IN INPUT. CHECK PARAM LIST", HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(HttpMessageNotReadableException.class)
+    public ResponseEntity<?> messageNotReadbleHandler(HttpMessageNotReadableException ex){
+        return new ResponseEntity<>("NOT A VALID INPUT. MUST BE A INTEGER", HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }
