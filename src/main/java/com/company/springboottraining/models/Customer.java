@@ -26,10 +26,6 @@ public class Customer {
     @Column
     private String name;
 
-    /*
-    @ElementCollection
-    @CollectionTable(name = "customer_array", joinColumns = @JoinColumn(name = "id"))
-     */
     @Column
     private List<Integer> arrayCustomer = new ArrayList<>();
 }
