@@ -12,6 +12,8 @@ import java.util.Map;
 @Endpoint(id = "arrays")
 public class ActuatorCustomEndpoints {
 
+    //TEST
+
     private final CustomerService customerService;
 
     public ActuatorCustomEndpoints(CustomerService customerService) {
